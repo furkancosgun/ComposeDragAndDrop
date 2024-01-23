@@ -111,6 +111,9 @@ fun <T> DropTarget(
     Box(modifier = modifier.onGloballyPositioned {
         it.boundsInWindow().let { rect ->
             isCurrentDropTarget = rect.contains(dragPosition + dragOffset) && dragInfo.isDragging
+
+            //if u not using scroll state(lazyColumn lazyRow) use down code
+            //isCurrentDropTarget = rect.contains(dragPosition + dragOffset)
         }
     }) {
         if (isCurrentDropTarget && !dragInfo.isDragging) {
